@@ -62,7 +62,12 @@ $("ul").keydown((val) => {
 
 $("#addList").submit((e) => {
     e.preventDefault();
-    e.target.todo.value.split(",").forEach((v) => {
+    let foo = e.target.todo.value.split(",");
+    if (foo.length === 0) {
+        window.alert("아무것도 안할거야?");
+        return;
+    }
+    foo.forEach((v) => {
         list.push('<li class="list-group-item list-group-item-action" tabindex="0">' + v + "</li>");
     });
     //console.log(list);
